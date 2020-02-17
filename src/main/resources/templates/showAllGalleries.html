@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>All galleries</title>
+</head>
+<body>
+<div id="container">
+    <div th:if="not ${galleriesList.isEmpty()}">
+        <h1>All galleries:</h1>
+
+        <table>
+            <thead>
+            <tr>
+            <th>Gallery</th>
+            <th>Delete</th>
+        </tr>
+            </thead>
+            <tbody>
+            <tr th:each="eachUser: ${galleriesList}" th:object="${eachUser}">
+<!--                <td th:text="*{nameOfGallery}"></td>-->
+                <td>
+                    <a th:href="@{/galleries/{id}(id=${eachUser.id})}" th:text="*{nameOfGallery}">[link]</a>
+                </td>
+
+<!--                <td>-->
+<!--                    <form th:action="@{delete}" method="post" th:object="${g}">-->
+<!--                        <input type="hidden" th:field="${eachUser.id}"/>-->
+<!--                        <button type="submit" value="Submit">Delete</button>-->
+<!--                    </form>-->
+<!--                </td>-->
+                <td>
+                    <a th:href="@{/galleries/delete/{id}(id=${eachUser.id})}"  > [link]</a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <div th:if="${galleriesList.isEmpty()}">
+        <h1>There is no data yet :(</h1>
+    </div>
+
+
+</div>
+</body>
+</html>

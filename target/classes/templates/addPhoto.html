@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <title>Add Photo</title>
+</head>
+<body>
+<div id="container">
+    <h1>Add Photo</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Name Of Photo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p:${dtoPhoto}">
+            <td th:text="${p.nameOfPhoto}"></td>
+            <td>
+                <form action="#" th:action="@{/photos/delete/{nameOfPhoto}(nameOfPhoto=${p.nameOfPhoto})}"
+                      method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form action=# method="post" th:object="${dtoPhoto}" th:action="@{/photos}" enctype="multipart/form-data" ><br> <br>
+            <label>
+                Name of Photo
+                <input type="text" th:field="*{nameOfPhoto}"/>
+            </label>
+
+            <label>
+                Attachment
+                <input type="file" name="attachment"/>
+            </label>
+
+        <button type="submit"> Add attachment</button>
+    </form>
+</div>
+</body>
+</html>

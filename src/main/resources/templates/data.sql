@@ -1,0 +1,25 @@
+-- DROP TABLE IF EXIST users;
+-- DROP TABLE IF EXIST gallery;
+-- DROP TABLE IF EXIST photo;
+--
+-- CREATE TABLE users(
+--     id IDENTITY,
+--   login VARCHAR(100) NOT NULL,
+--   password VARCHAR(100) NOT NULL
+-- )
+--
+-- CREATE TABLE gallery(
+-- id IDENTITY ,
+-- nameOfGallery VARCHAR(100)
+-- FOREIGN KEY (users) REFERENCES users(id)
+-- )
+--
+-- CREATE TABLE photo(
+-- id IDENTITY ,
+-- nameOfPhoto VARCHAR(100) UNIQUE ,
+-- FOREIGN KEY (gallery) REFERENCES gallery(id)
+-- )
+--
+-- insert into users(id, login, password) VALUES (1, 'K', 'K'),
+
+# insert into user_role(role, description) VALUES ("ROLE_USER", "default role for user");

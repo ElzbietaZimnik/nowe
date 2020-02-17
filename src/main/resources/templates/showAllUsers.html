@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>All results</title>
+</head>
+<body>
+<div id="container">
+<div th:if="not ${userList.isEmpty()}">
+    <h1>All registered users:</h1>
+    <table>
+        <tr>
+            <th>Login</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="eachUser: ${userList}" th:object="${eachUser}">
+            <td th:text="*{login}"></td>
+        </tr>
+    </table>
+</div>
+<div th:if="${userList.isEmpty()}">
+    <h1>There is no data yet :(</h1>
+</div>
+</div>
+</body>
+</html>

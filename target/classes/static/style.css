@@ -1,0 +1,17 @@
+
+	body
+	{
+		background-color: #666666;
+		font-family: Tahoma, sans-serif;
+	}
+
+	#container
+	{
+		font-family: Tahoma, sans-serif;
+		width: 1500px;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+		padding: 20px;
+		margin-top: 1%;
+	}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <title>Add Gallery</title>
+</head>
+<body>
+<div id="container">
+    <h1>Add Gallery</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Name Of Gallery</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="g:${dtoGallery}">
+            <td th:text="${g.nameOfGallery}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form action=# method="post" th:action="@{/galleries}" th:object="${dtoGallery}" > <br> <br>
+            <label>
+                Name of Gallery
+                <p th:errors="*{nameOfGallery}">Login errors</p>
+                <input type="text" th:field="*{nameOfGallery}" placeholder="NameOfGallery">
+            </label>
+        <button type ="submit"> Add Gallery</button>
+
+
+<!--        <a href="#" th:href="@{/register}">Register</a><br> <br>-->
+<!--        <form action="#" th:action="@{/photos/delete/{nameOfPhoto}(nameOfPhoto=${p.nameOfPhoto})}"-->
+
+
+    </form>
+</div>
+</body>
+</html>

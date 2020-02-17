@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>All results</title>
+</head>
+<body>
+<div id="container">
+    <div th:if="not ${photoList.isEmpty()}">
+        <h1>All photos:</h1>
+        <table>
+            <tr>
+                <th>Photos</th>
+            </tr>
+            <tr th:each="eachUser: ${photoList}" th:object="${eachUser}">
+                <td th:text="*{nameOfPhoto}"></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${photoList.isEmpty()}">
+        <h1>There is no photos yet :(</h1>
+    </div>
+</div>
+</body>
+</html>
