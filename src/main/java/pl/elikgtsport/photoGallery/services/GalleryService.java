@@ -34,13 +34,9 @@ public class GalleryService {
         return galleryRepository.findById(id);
     }
 
-//    public void deleteById(Long id) {
-//        galleryRepository.deleteById(id);
-//    }
-//
-//    public void deleteGallery(Gallery gallery) {
-//        galleryRepository.delete(gallery);
-//    }
+    public void deleteById(Gallery id) {
+        galleryRepository.deleteById(id);
+    }
 
 //    public void updateGallery(Long id, String nameOfGallery) {
 //        galleryRepository.updateGallery(id, nameOfGallery);

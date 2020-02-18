@@ -72,29 +72,25 @@ public class GalleryController {
     }
 
 
-//    @GetMapping("/edit/{id}")
-//    public String showUpdateForm(@PathVariable long id, Model model) {
-//        Gallery g = galleryService.findById(id)
-//                .orElseThrow(() -> new IllegalArgumentException("Invalid gallery id: " + id));
-//        model.addAttribute("gallery", g);
-//        return "update-gallery";
-//    }
-
-//    @GetMapping("/galleries/delete/{id}")
-//    public String removeGalllery(@PathVariable Long id, Model model) {
-//        log.info("Deleting gallery by: id {}", id);
-//        Gallery gallery = galleryService.findById(id)
-//                .orElseThrow(() -> new IllegalArgumentException("Incorrect gallery: " + id));
-//        galleryService.deleteGallery(gallery);
-//        model.addAttribute("gallery", galleryService.findAll());
-//        return "index";
-//    }
+    @GetMapping("/galleries/delete/{id}")
+    public String removeGalllery(@PathVariable Long id, Model model) {
+        log.info("Deleting gallery by: id {}", id);
+        Gallery gallery = galleryService.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Incorrect gallery: " + id));
+        galleryService.deleteById(gallery);
+        model.addAttribute("gallery", galleryService.findAll());
+        return "showAllGalleries";
+    }
 
 
-//    @PutMapping("/galleries/update/{id}")
-//    public void updateGallery(@PathVariable Long id, @RequestBody DtoGallery dtoGallery) {
+//    @GetMapping("/galleries/update/{id}")
+//    public String updateGallery(@PathVariable Long id, @RequestBody DtoGallery dtoGallery, Model model) {
 //        log.info("Updating gallery by: id {}", id);
 //        galleryService.updateGallery(id, dtoGallery.nameOfGallery);
+//        model.addAttribute("gallery", galleryService.findAll());
+//        return "updateGallery";
 //    }
+
+
 
 }

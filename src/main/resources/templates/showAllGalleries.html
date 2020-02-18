@@ -8,7 +8,6 @@
 <div id="container">
     <div th:if="not ${galleriesList.isEmpty()}">
         <h1>All galleries:</h1>
-
         <table>
             <thead>
             <tr>
@@ -17,33 +16,28 @@
         </tr>
             </thead>
             <tbody>
-            <tr th:each="eachUser: ${galleriesList}" th:object="${eachUser}">
+            <tr th:each="eachGallery: ${galleriesList}" th:object="${eachGallery}">
 <!--                <td th:text="*{nameOfGallery}"></td>-->
                 <td>
-                    <a th:href="@{/galleries/{id}(id=${eachUser.id})}" th:text="*{nameOfGallery}">[link]</a>
+                    <a th:href="@{/galleries/{id}(id=${eachGallery.id})}" th:text="*{nameOfGallery}">[link]</a>
                 </td>
-
 <!--                <td>-->
 <!--                    <form th:action="@{delete}" method="post" th:object="${g}">-->
-<!--                        <input type="hidden" th:field="${eachUser.id}"/>-->
+<!--                        <input type="hidden" th:field="${eachGallery.id}"/>-->
 <!--                        <button type="submit" value="Submit">Delete</button>-->
 <!--                    </form>-->
 <!--                </td>-->
                 <td>
-                    <a th:href="@{/galleries/delete/{id}(id=${eachUser.id})}"  > [link]</a>
+                    <a th:href="@{/galleries/delete/{id}(id=${eachGallery.id})}" >Delete</a>
                 </td>
 
             </tr>
             </tbody>
         </table>
-
-
     </div>
     <div th:if="${galleriesList.isEmpty()}">
         <h1>There is no data yet :(</h1>
     </div>
-
-
 </div>
 </body>
 </html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Gallery</title>
+</head>
+<body>
+<div id="container">
+
+    <h1>Update Gallery:</h1>
+
+
+    <form action="#" th:action="@{/galleries/update/{id}(id=${gallery.id})}" th:object="${gallery}" method="post">
+
+        <input type="text" th:field="*{nameOfGallery}" id="nameOfGallery" placeholder="nameOfGallery">
+        <input type="submit" value="Update">
+    </form>
+</div>
+</body>
+</html>

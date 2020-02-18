@@ -13,7 +13,7 @@ public interface GalleryRepository extends JpaRepository<Gallery, Long> {
 
     Gallery findByNameOfGallery(String nameOfGallery);
 
-//    void deleteById(Long id);
+    void deleteById(Gallery id);
 
 //    void updateGallery(Long id, String nameOfGallery);
 }
