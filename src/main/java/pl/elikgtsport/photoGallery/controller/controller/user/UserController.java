@@ -42,7 +42,6 @@ public class UserController {
     public String addUser(@ModelAttribute @Valid DtoUserRegistration dto,
                           BindingResult bindResult) {
         log.info("Adding new user {}", dto);
-
         User existing = userService.findByLogin(dto.getLogin());
         if (existing != null) {
             bindResult.rejectValue("login", null, "Account is already exist");

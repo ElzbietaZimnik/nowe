@@ -22,6 +22,7 @@ public class GalleryController {
 
     private final GalleryService galleryService;
 
+
     @GetMapping("/showGallerries")
     public String showAllGalleries(Model model) {
         log.info("Showing gallery list");
